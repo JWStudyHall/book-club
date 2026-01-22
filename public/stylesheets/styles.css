@@ -10,3 +10,17 @@ body {
   padding: 0;
   line-height: 1.5; /* Improves readability */
 }
+
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book-container {
+  height: 250px;
+  width: 250px;
+}
+
+.book-container img {
+  height: 200px;
+}
