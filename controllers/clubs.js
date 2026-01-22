@@ -1,13 +1,50 @@
 const Club = require("../models/club.js");
 
-const clubIndex = (req, res) => {
-  res.render("clubs/index.ejs");
+const clubIndex = async (req, res) => {
+  const clubData = await Club.find({}).populate("book");
+
+  console.log(clubData);
+
+  res.render("clubs/index.ejs", {
+    clubs: clubData,
+  });
 };
+
 const clubNew = (req, res) => {
-  res.render("clubs/new.ejs");
+  res.render("clubs/new.ejs", {
+    bookId: req.params.bookId,
+  });
+};
+
+const createClub = async (req, res) => {
+  await Club.create(req.body);
+  res.redirect("/clubs");
+};
+
+const clubShow = async (req, res) => {
+  const clubData = await Club.findById(req.params.clubId)
+    .populate("book")
+    .populate({
+      path: "members",
+      select: "username avatar",
+    });
+  console.log(clubData);
+  res.render("clubs/show.ejs", {
+    club: clubData,
+  });
+};
+
+const addMember = async (req, res) => {
+  const club = await Club.findById(req.params.clubId);
+  club.members.push(req.session.user._id);
+  await club.save();
+  res.redirect(`/clubs/${club._id}`);
 };
 
 module.exports = {
   clubIndex,
   clubNew,
+  createClub,
+  clubShow,
+  addMember,
 };

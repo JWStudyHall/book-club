@@ -26,12 +26,15 @@ const registerUser = async (req, res) => {
   const user = await User.create({
     username: req.body.username,
     password: hashedPassword,
+    avatar:
+      "https://png.pngtree.com/png-clipart/20200701/original/pngtree-character-default-avatar-png-image_5407167.jpg",
   });
 
   // Manage Session
   req.session.user = {
     username: user.username,
     _id: user._id,
+    avatar: user.avatar,
   };
 
   req.session.save(() => {
@@ -56,7 +59,7 @@ const loginUser = async (req, res) => {
   // Compare userInDatabase's hashed password against Form Data password hashed by bcrypt
   const validPassword = bcrypt.compareSync(
     req.body.password,
-    userInDatabase.password
+    userInDatabase.password,
   );
 
   if (!validPassword) {
@@ -67,6 +70,7 @@ const loginUser = async (req, res) => {
   req.session.user = {
     username: userInDatabase.username,
     _id: userInDatabase._id,
+    avatar: userInDatabase.avatar,
   };
 
   req.session.save(() => {

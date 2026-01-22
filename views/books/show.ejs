@@ -10,7 +10,7 @@
     <%- include("../partials/nav.ejs") %>
     <h1><%= book.title %></h1>
     <img src="<%= book.image %>" alt="<%= book.title %>">
-    <a href="/clubs/new"> 
+    <a href="/clubs/book/<%= book._id %>/new"> 
         <div>
             <button>create club</button>
         </div>

@@ -10,9 +10,19 @@
      <%- include("../partials/nav.ejs") %>
      <h1>Clubs page</h1>
 
+     <div>
+        <% clubs.forEach((club) => {%>
+            <div class="club-container"> 
+                <h2><%= club.title %> </h2>
+                <img src="<%= club.book.image %>" alt="<%= club.book.title %>">
 
+            </div>
+        
+            <a href="/clubs/<%= club._id %>">
+               <button> view club</button>
+            </a>
+         <% }) %>
+     </div>
 
-
-     </form>
 </body>
 </html>
