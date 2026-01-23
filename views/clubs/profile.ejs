@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <link rel="stylesheet" href="stylesheets/styles.css" />
+  </head>
+  <body>
+    <%- include("../partials/nav.ejs") %>
+    <h1>Hello, <%= user.username %></h1>
+    <img src="<%= user.avatar %>" alt="<%= user.username %>">
+
+
+     <div>
+        <h3>Members</h3>
+        <% clubs.forEach((club) => {%>
+            <div class="club-container"> 
+                <h2><%= club.title %> </h2>
+                <img src="<%= club.book.image %>" alt="<%= club.book.title %>">
+
+            </div>
+        
+            <a href="/clubs/<%= club._id %>">
+               <button> view club</button>
+            </a>
+         <% }) %>
+     </div>
+
+  </body>
+</html>

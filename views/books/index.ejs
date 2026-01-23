@@ -8,17 +8,22 @@
 </head>
 <body>
       <%- include("../partials/nav.ejs") %>
-     <h1>Books page</h1>
-     <div class="books-container">
-         <% books.forEach((book) => {%>
-            <div class="book-container"> 
-                <h2><%= book.title %> </h2>
-                <a href="/books/<%= book._id %>">
-                    <img src="<%= book.image %>" alt="<%= book.title %>">
+      <div class="bookshelf-page">
+
+          <h1 class="bookshelf-page-text">Books</h1>
+          <div class="books-container">
+              <% books.forEach((book) => {%>
+                
+                <div class="book-container"> 
+                    <a href="/books/<%= book._id %>" class="book"></a>
+                    
+                    <img class="book-img" src="<%= book.image %>" alt="<%= book.title %>">
+                    <div class="book-title"> <%= book.title %></div> 
                 </a>
             </div>
-         <% }) %>
-        
-     </div>
+            <% }) %>
+            
+        </div>
+    </div>
 </body>
 </html>

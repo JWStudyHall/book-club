@@ -13,6 +13,11 @@
       <img src="<%= club.book.image %>" alt="<%= club.book.title %>" />
     </div>
 
+    <% if( user._id === String(club.owner)){ %>
+      <form action="/clubs/<%= club._id %>?_method=DELETE" method="POST">
+        <button type="submit">Delete Club</button>
+      </form>
+    <% } %>
     <div>
       <h2>Members</h2>
       <form action="/clubs/<%= club._id %>/addmember?_method=PUT" method="POST">

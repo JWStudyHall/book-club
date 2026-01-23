@@ -8,19 +8,105 @@
 body {
   margin: 0; /* Removes default body margin */
   padding: 0;
-  line-height: 1.5; /* Improves readability */
+  background-image: url("https://i.pinimg.com/736x/29/c0/ed/29c0edf7cce5c4915e94e9e068de47e0.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center top;
+  background-repeat: no-repeat;
+  cursor: auto;
 }
 
+.bookshelf-page {
+  background-image: url("https://i.pinimg.com/736x/ee/e1/b6/eee1b6c46e13b9acc79c6e7b41f1373f.jpg");
+  background-size: cover;
+  background-attachment: fixed;
+  background-position: center top;
+  background-repeat: no-repeat;
+  padding-top: 340px;
+  text-align: center;
+  -webkit-text-fill-color: rgb(222, 222, 175);
+}
 .books-container {
   display: flex;
   flex-wrap: wrap;
+  gap: 1rem;
+  justify-content: center;
+  padding: 2rem;
 }
 
 .book-container {
+  position: relative;
   height: 250px;
-  width: 250px;
+  width: 80px;
+  overflow: hidden;
 }
 
-.book-container img {
-  height: 200px;
+.book-img {
+  position: relative;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  display: block;
+  transition: filter 0.2s ease;
+  z-index: 1;
+}
+
+.book {
+  position: absolute;
+  inset: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  font-size: 0.65rem;
+  color: aliceblue;
+  text-shadow: 0 0 2px rgba (90, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.book-title {
+  position: absolute;
+  width: auto;
+  height: auto;
+  inset: 0;
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+  display: flex;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-variant: small-caps;
+  font-size: 1.2rem;
+  align-items: center;
+  justify-content: center;
+  background: rgba(0, 0, 0, 0.65);
+  color: white;
+  opacity: 0;
+  z-index: 2;
+}
+
+.book-container:hover .book-img {
+  filter: blur(5px);
+}
+
+.book-container:hover .book-title {
+  opacity: 1;
+  transform: scale(1);
+  cursor: pointer;
+}
+
+nav{
+  display: flex;
+  justify-content:space-between;
+  align-items: baseline;
+  padding: 8px;
+  background: rgba(90, 0, 25, 0.65);
+  color: #fff;
+  text-shadow: 0 1px 3px rgba(0,0,0,0.8)
+
+}
+
+a{
+  color: rgba(174, 54, 88, 0.65);
+
+}
+a:hover{
+  color: white;
 }

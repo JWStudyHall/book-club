@@ -41,10 +41,29 @@ const addMember = async (req, res) => {
   res.redirect(`/clubs/${club._id}`);
 };
 
+const getProfile = async (req, res) => {
+  const clubs = await Club.find({
+    $or: [{ owner: req.session.user._id }, { members: req.session.user._id }],
+  }).populate("book");
+
+  console.log(clubs);
+
+  res.render("clubs/profile.ejs", {
+    clubs: clubs,
+  });
+};
+
+const deleteClub = async (req, res) => {
+  await Club.findByIdAndDelete(req.params.clubId);
+  res.redirect("/clubs");
+};
+
 module.exports = {
   clubIndex,
   clubNew,
   createClub,
   clubShow,
   addMember,
+  getProfile,
+  deleteClub,
 };
