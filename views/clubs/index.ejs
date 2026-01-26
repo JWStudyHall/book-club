@@ -10,17 +10,20 @@
      <%- include("../partials/nav.ejs") %>
      <h1>Clubs page</h1>
 
-     <div>
+     <div class="club-container">
         <% clubs.forEach((club) => {%>
-            <div class="club-container"> 
-                <h2><%= club.title %> </h2>
-                <img src="<%= club.book.image %>" alt="<%= club.book.title %>">
-
+            <div class="club-item"> 
+                <a href="/clubs/<%= club._id %>">
+                    <div class="image-wrapper">
+                         <img src="<%= club.book.image %>" alt="<%= club.book.title %>" class="club-image">
+                        
+                        <button class="overlay-button"> View Club</button>
+                    </div>
+                    <div>
+                    <h2><%= club.title %> </h2>
+                </div>
+                </a>
             </div>
-        
-            <a href="/clubs/<%= club._id %>">
-               <button> view club</button>
-            </a>
          <% }) %>
      </div>
 
