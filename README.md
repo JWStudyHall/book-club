@@ -7,7 +7,7 @@ Deploy app [click here](book-club-online.up.railway.app)
 
 - Create book clubs
 - Join existing book clubs
-- User accounts
+- User accounts/ authentication
 
 ## Tech Stack
 
