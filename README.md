@@ -1,7 +1,7 @@
 # Book Club App
 
 A web app for creating and joining book clubs.
-deploy app [book-club-online.up.railway.app]
+deploy app [click here](book-club-online.up.railway.app)
 ## Features
 
 - Create book clubs
