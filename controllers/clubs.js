@@ -3,7 +3,7 @@ const Club = require("../models/club.js");
 const clubIndex = async (req, res) => {
   const clubData = await Club.find({}).populate("book");
 
-  console.log(clubData);
+  // console.log(clubData);
 
   res.render("clubs/index.ejs", {
     clubs: clubData,
@@ -28,7 +28,7 @@ const clubShow = async (req, res) => {
       path: "members",
       select: "username avatar",
     });
-  console.log(clubData);
+  // console.log(clubData);
   res.render("clubs/show.ejs", {
     club: clubData,
   });
@@ -36,8 +36,10 @@ const clubShow = async (req, res) => {
 
 const addMember = async (req, res) => {
   const club = await Club.findById(req.params.clubId);
-  club.members.push(req.session.user._id);
-  await club.save();
+  if (!club.members.includes(req.session.user._id)) {
+    club.members.push(req.session.user._id);
+    await club.save();
+  }
   res.redirect(`/clubs/${club._id}`);
 };
 
@@ -46,7 +48,7 @@ const getProfile = async (req, res) => {
     $or: [{ owner: req.session.user._id }, { members: req.session.user._id }],
   }).populate("book");
 
-  console.log(clubs);
+  // console.log(clubs);
 
   res.render("clubs/profile.ejs", {
     clubs: clubs,

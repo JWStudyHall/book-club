@@ -9,5 +9,7 @@ router.post("/register", controllers.registerUser); // Process my POST request t
 router.get("/login", controllers.login); // Render my login Form
 router.post("/login", controllers.loginUser); // Process my POST request to log user in
 router.get("/sign-out", controllers.signOut); // Logs a user out and destroys the current session
+router.get("/editprofile", controllers.editProfilePage);
+router.put("/editprofile", controllers.editProfile);
 
 module.exports = router;

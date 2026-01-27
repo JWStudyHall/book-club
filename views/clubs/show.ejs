@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Book Club</title>
+    <link rel="stylesheet" href="/stylesheets/styles.css">
   </head>
   <body>
     <%- include("../partials/nav.ejs") %>
@@ -20,14 +21,31 @@
     <% } %>
     <div>
       <h2>Members</h2>
-      <form action="/clubs/<%= club._id %>/addmember?_method=PUT" method="POST">
-        <button type="submit">Join</button>
-      </form>
+      <%
+  const isMember = club.members.some(
+    member => String(member._id) === String(user._id)
+  );
+%>
+      <% if (!isMember) { %> 
+        <form action="/clubs/<%= club._id %>/addmember?_method=PUT" method="POST">
+          <button type="submit">Join</button>
+        </form>
+        <% } %>
 
-      <div>
+      <div style="display: flex;
+                  gap: 16px;
+                  overflow-x: auto;
+                  overflow-y: hidden;
+                  max-width: 300px;
+                  padding: 8px;">
         <% club.members.forEach((member)=>{ %>
+          <div style="flex: 0 0 auto;
+                      width: 100px;
+                      text-align: center;"> 
             <img src="<%= member.avatar %>" alt="<%= member.username %>" style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block;">
             <p><%= member.username %></p>
+            
+          </div>
         <% }) %>
       </div>
     </div>

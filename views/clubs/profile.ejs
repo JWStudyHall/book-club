@@ -4,29 +4,30 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Profile</title>
-    <link rel="stylesheet" href="/css/styles.css">
+    <link rel="stylesheet" href="/stylesheets/styles.css">
   </head>
   <body>
     <%- include("../partials/nav.ejs") %>
     <h1>Hello, <%= user.username %></h1>
     <div>
-      <img src="<%= user.avatar %>" alt="<%= user.username %>" 
-     style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block;">
+      <a href="/auth/editprofile">
+ <img src="<%= user.avatar %>" alt="<%= user.username %>" 
+ style="width:100px; height:100px; border-radius:50%; object-fit:cover; display:block;">
+    </a>
     </div>
      <div>
-        <h3>Members</h3>
-        <div class="books-grid">
+        <h3>My Clubs</h3>
+        <div class="books-grid" >
         <% clubs.forEach((club) => {%>
-            <div class="club-container"> 
+            <div class="book-card"> 
                 <h2><%= club.title %> </h2>
                 <img src="<%= club.book.image %>" alt="<%= club.book.title %>" style="width:200px; height:auto; object-fit:cover; display:block;">
 
-            </div>
-        
-            <a href="/clubs/<%= club._id %>">
-               <button> view club</button>
-            </a>
-            </div>
+                
+                <a href="/clubs/<%= club._id %>">
+                  <button> view club</button>
+                </a>
+              </div>
          <% }) %>
      </div>
 

@@ -6,32 +6,40 @@
 
 /* Optional base styles */
 body {
-  margin: 0; /* Removes default body margin */
-  padding: 0;
-  background-image: url("https://i.pinimg.com/736x/29/c0/ed/29c0edf7cce5c4915e94e9e068de47e0.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center top;
-  background-repeat: no-repeat;
-  cursor: auto;
+  margin: 0;
+  font-family:
+    system-ui,
+    -apple-system,
+    BlinkMacSystemFont,
+    sans-serif;
+  background-color: #f5f3ef; /* warm parchment */
+  color: #222;
 }
 
-.bookshelf-page {
-  background-image: url("https://i.pinimg.com/736x/ee/e1/b6/eee1b6c46e13b9acc79c6e7b41f1373f.jpg");
-  background-size: cover;
-  background-attachment: fixed;
-  background-position: center top;
-  background-repeat: no-repeat;
-  padding-top: 340px;
-  text-align: center;
-  -webkit-text-fill-color: rgb(222, 222, 175);
+.bookshelf-page-text {
+  position: sticky;
+  top: 120px;
+  transition: opacity 0.2s linear;
 }
+.bookshelf-page {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 2rem 4rem;
+}
+.bookshelf-page h1 {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-bottom: 2rem;
+  color: #333;
+}
+
 .books-container {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
   justify-content: center;
   padding: 2rem;
+  align-items: start;
 }
 
 .book-container {
@@ -39,6 +47,7 @@ body {
   height: 250px;
   width: 80px;
   overflow: hidden;
+  cursor: pointer;
 }
 
 .book-img {
@@ -47,7 +56,7 @@ body {
   width: 100%;
   object-fit: cover;
   display: block;
-  transition: filter 0.2s ease;
+  transition: filter 0.15s ease;
   z-index: 1;
 }
 
@@ -63,6 +72,10 @@ body {
   align-items: center;
   justify-content: center;
 }
+.book-link {
+  display: block;
+}
+
 .book-title {
   position: absolute;
   width: auto;
@@ -76,14 +89,15 @@ body {
   font-size: 1.2rem;
   align-items: center;
   justify-content: center;
-  background: rgba(0, 0, 0, 0.65);
+  background: rgba(0, 0, 0, 0.35);
   color: white;
   opacity: 0;
   z-index: 2;
+  pointer-events: none;
 }
 
 .book-container:hover .book-img {
-  filter: blur(5px);
+  filter: blur(2px) brightness(0.9);
 }
 
 .book-container:hover .book-title {
@@ -91,32 +105,91 @@ body {
   transform: scale(1);
   cursor: pointer;
 }
+.login-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-box {
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.05);
+  border-radius: 10px;
+  font-family: "Times New Roman", Times, serif;
+  margin-left: 1.25rem;
+  padding: 2rem;
+  width: 320ox;
+
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+}
+.login-wrapper h1 {
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 500;
+}
+.auth-wrapper {
+  min-height: calc(100vh - 60px);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.auth-box {
+  width: 360px;
+  padding: 2rem 2.25rem;
+  background-color: #ffffff;
+  border-radius: 12px;
+  margin-left: 1.25rem;
+  border: 1px solid rgba(0, 0, 0, 0.12);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+
+.auth-box label {
+  font-size: 0.8rem;
+  color: #444;
+}
+
+.auth-box input {
+  width: 100%;
+  padding: 0.6rem 0.75rem;
+  border-radius: 6px;
+  border: 1px solid rgba(0, 0, 0, 0.25);
+  font-size: 0.95rem;
+}
+
+.primary-button {
+  width: 100%;
+  padding: 0.6rem;
+  border-radius: 8px;
+  margin-top: 1.25rem;
+  border:;
+  background-color: #2a2a2a;
+  color: #fff;
+
+  font-size: 0.9rem;
+  cursor: pointer;
+}
 
 nav {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding: 8px;
-  background: rgba(90, 0, 25, 0.65);
-  color: #fff;
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.8);
+  align-items: center;
+  padding: 0.75rem 1.25rem;
+  background: #e6e2dc;
+  color: #2a2a2a;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.05);
 }
 
 a {
-  color: rgba(174, 54, 88, 0.65);
+  color: inherit;
+  text-decoration: none;
+  font-size: 0.9rem;
 }
 a:hover {
-  color: white;
+  text-decoration: underline;
 }
 
-h1 {
-  color: gainsboro;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-
-p{
+p {
   text-align: center;
   justify-content: center;
   align-items: center;
@@ -128,7 +201,6 @@ p{
   left: 50%;
   color: white;
   opacity: 0;
-  pointer-events: none;
 }
 .club-item:hover h2 {
   opacity: 1;
@@ -137,10 +209,31 @@ p{
 .image-wrapper {
   position: relative;
 }
+.clubs-page {
+  background-color: #f4f2ee;
+  min-height: 100vh;
+}
+.club-title {
+  display: none;
+}
 
+.image-wrapper:hover .club-title {
+  opacity: 1;
+}
+.landing-page {
+  background-color: #f4f2ee;
+}
+.hero {
+  background-image: url("https://i.pinimg.com/736x/26/08/93/26089369b6798eabba7da6a3e171b685.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  min-height: 100vh;
+}
 .club-container {
   display: grid;
-  grid-template-columns: repeat(auto);
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1.5rem;
   border: 1px solid #ccc;
   border-radius: 8px;
   min-height: 50px;
@@ -152,8 +245,22 @@ p{
 }
 
 .club-item {
-  text-align: center;
+  background-color: #ffffff;
+  border: 1px solid rgba(0, 0, 0, 0.08);
+  border-radius: 6px;
   overflow: hidden;
+  transition:
+    transform 0.15s ease,
+    box-shadow 0.15s ease;
+}
+.club-item:hover .overlay-button {
+  opacity: 1;
+}
+
+.club-item a {
+  display: block;
+  text-decoration: none;
+  color: inherit;
 }
 
 .club-image {
@@ -167,13 +274,47 @@ p{
   position: absolute;
   bottom: 10px;
   left: 50%;
-  transform: translateX(-50%);
-  padding: 0.5rem 1rem;
-  background-color: rgba(0, 119, 204, 0.8);
-  color: white;
-  border: none;
-  border-radius: 5px;
+  padding: 0.4rem 0.7rem;
+  background-color: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  border-radius: 4%;
   cursor: pointer;
 }
 
+.overlay-button:hover {
+  background-color: #ffffff;
+}
 
+.books-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 2rem;
+}
+
+.button {
+  background-color: #ffffff;
+  color: #222;
+  border: 1px solid rgba(0, 0, 0, 0.15);
+  padding: 0.4rem 0.7rem;
+  border-radius: 4px;
+  font-size: 0.85rem;
+  cursor: pointer;
+}
+
+.button:hover {
+  background-color: #fafafa;
+}
+
+.book-card {
+  text-align: center;
+}
+
+.book-card h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+.book-card button {
+  margin-top: 0.5rem;
+}

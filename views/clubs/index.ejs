@@ -8,24 +8,27 @@
 </head>
 <body>
      <%- include("../partials/nav.ejs") %>
-     <h1>Clubs page</h1>
-
-     <div class="club-container">
-        <% clubs.forEach((club) => {%>
-            <div class="club-item"> 
-                <a href="/clubs/<%= club._id %>">
-                    <div class="image-wrapper">
-                         <img src="<%= club.book.image %>" alt="<%= club.book.title %>" class="club-image">
-                        
-                        <button class="overlay-button"> View Club</button>
-                    </div>
-                    <div>
-                    <h2><%= club.title %> </h2>
+     <div class="clubs-page">
+         <h1>Clubs</h1>
+         
+         <div class="club-container">
+             <% clubs.forEach((club) => {%>
+                <div class="club-item"> 
+                    <a href="/clubs/<%= club._id %>">
+                        <div class="image-wrapper">
+                            <img src="<%= club.book.image %>" alt="<%= club.book.title %>" class="club-image">
+                            
+                            
+                            <h2 class="club-title"><%= club.title %> </h2>
+                            
+                            <button class="overlay-button"> View Club</button>
+                        </div>
+                    </a>
                 </div>
-                </a>
+                <% }) %>
             </div>
-         <% }) %>
-     </div>
+        </div>
+        
 
 </body>
 </html>

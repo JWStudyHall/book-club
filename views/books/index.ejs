@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>Books</title>
      <link rel="stylesheet" href="stylesheets/styles.css">
 </head>
 <body>
@@ -13,15 +13,16 @@
           <h1 class="bookshelf-page-text">Books</h1>
           <div class="books-container">
               <% books.forEach((book) => {%>
-                
-                <div class="book-container"> 
-                    <a href="/books/<%= book._id %>" class="book"></a>
-                    
-                    <img class="book-img" src="<%= book.image %>" alt="<%= book.title %>">
-                    <div class="book-title"> <%= book.title %></div> 
+                <a href="/books/<%= book._id %>" class="book-link">
+
+                    <div class="book-container"> 
+                        
+                        <img class="book-img" src="<%= book.image %>" alt="<%= book.title %>">
+                        <div class="book-title"> <%= book.title %></div> 
+                    </div>
                 </a>
-            </div>
-            <% }) %>
+                
+                <% }) %>
             
         </div>
     </div>

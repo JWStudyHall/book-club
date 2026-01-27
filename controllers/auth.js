@@ -85,10 +85,27 @@ const signOut = (req, res) => {
   });
 };
 
+const editProfilePage = (req, res) => {
+  res.render("auth/editprofile.ejs");
+};
+
+const editProfile = async (req, res) => {
+  const updatedUser = await User.findByIdAndUpdate(
+    req.session.user._id,
+    req.body,
+  );
+
+  req.session.user.avatar = updatedUser.avatar;
+
+  res.redirect("/clubs/userprofile");
+};
+
 module.exports = {
   register,
   registerUser,
   login,
   loginUser,
   signOut,
+  editProfilePage,
+  editProfile,
 };
