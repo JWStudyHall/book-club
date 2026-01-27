@@ -19,6 +19,8 @@ Deploy app [click here](book-club-online.up.railway.app)
 
 ### Open Locally
 
-Open localhost:3000 in a browser.
+Using localhost:3000 in a browser
+
+Or
 
 ### Run With Server 
