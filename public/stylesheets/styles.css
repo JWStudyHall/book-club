@@ -1,10 +1,9 @@
 *,
 *::before,
 *::after {
-  box-sizing: border-box; /* Ensures padding and border are included in the element's total width and height */
+  box-sizing: border-box; 
 }
 
-/* Optional base styles */
 body {
   margin: 0;
   font-family:
@@ -162,12 +161,66 @@ body {
   padding: 0.6rem;
   border-radius: 8px;
   margin-top: 1.25rem;
-  border:;
   background-color: #2a2a2a;
   color: #fff;
 
   font-size: 0.9rem;
   cursor: pointer;
+}
+.club-page {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.club-aside {
+  /* flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  min-height: 60vh; */
+  padding-top: 20px;
+}
+
+.club-page form {
+  text-align: center;
+}
+
+.club-notice {
+  max-width: 320px;
+  text-align: center;
+  background: white;
+  border: 1px solid white;
+  color: #664d03;
+  padding: 20px;
+  border-radius: 8px;
+  line-height: 1.4;
+}
+.club-notice-card {
+  width: 320px;
+  border-radius: 10px;
+  margin-top: -8px;
+  overflow: hidden;
+  background: #fbf9f4;
+  outline: 1.5px solid #e6e0d6;
+  outline-offset: -1.5px;
+  border: 1px solid #dbeafe; /* soft blue edge */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.06);
+}
+.club-notice-header {
+  background: #d3cfc5;
+  color: #2f2f2f;
+  padding: 12px 16px;
+  font-weight: 600;
+  font-size: 0.95rem;
+  letter-spacing: 0.02em;
+}
+.club-notice-body {
+  padding: 16px;
+  color: #3a3a3a;
+  font-size: 0.95rem;
+  line-height: 1.4;
 }
 
 nav {
